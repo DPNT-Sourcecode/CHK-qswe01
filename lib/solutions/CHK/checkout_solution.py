@@ -34,12 +34,18 @@ def checkout(skus):
                 q5A, rest5 = divmod(amount, 5)
                 q3A, rest3 = divmod(rest5, 3)
                 total += (q5A*200 + q3A*130 + rest3*prices.get(item))
-            elif item == "B":
-                q, rest = divmod(amount, 2)
-                total += (q*45 + rest*prices.get(item))
+            elif item == "B":       
+                qB, rest = divmod(amount, 2)
 
-                q, rest = divmod(basket.get("E", 0), 2)
-                total -= q*prices.get("B")
+                potentialSumB1 = (qB*45 + rest*prices.get(item))
+                
+                qE, _ = divmod(basket.get("E", 0), 2)
+                tempAmount = amount - qE
+                qB2, rest = divmod(tempAmount, 2)
+                potentialSumB2 = (qB2*45 + rest*prices.get(item))
+
+
+                total += min(potentialSumB1, potentialSumB2)
     
     return total
 
