@@ -18,12 +18,13 @@ def checkout(skus):
 
     total = 0
 
-    if basket.get("B") and basket.get("E"):
-        q, rest = divmod(basket.get("E"), 2)
-        if basket.get("B") >= q:
-            basket["B"] = basket.get("B") - q
-        else:
-            basket["B"] = 0
+    #if basket.get("B") and basket.get("E"):
+    #    q, rest = divmod(basket.get("E"), 2)
+    #    if basket.get("B") >= q:
+    #        basket["B"] = basket.get("B") - q
+    #    else:
+    #        basket["B"] = 0
+    #print(basket)
 
     for item, amount in basket.items():
         if item not in special_offer:
@@ -36,8 +37,9 @@ def checkout(skus):
             elif item == "B":
                 q, rest = divmod(amount, 2)
                 total += (q*45 + rest*prices.get(item))
-            elif item == "E":
-                total += amount*prices.get(item)
+
+                q, rest = divmod(basket.get("E", 0), 2)
+                total -= q*prices.get("B")
     
     return total
 
@@ -82,5 +84,6 @@ Where:
  - param[0] = a String containing the SKUs of all the products in the basket
  - @return = an Integer representing the total checkout value of the items 
  """
+
 
 
