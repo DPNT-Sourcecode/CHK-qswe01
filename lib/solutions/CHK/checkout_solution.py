@@ -121,31 +121,33 @@ def checkout(skus):
                 
     return total
 
-print(checkout("AAAA"))
-print(checkout("BBBB"))
-#print(checkout("C"))
-#print(checkout("D"))
-#print(checkout("ABCD"))
-#print(checkout("ABCDEE"))
-#print(checkout("AAAAAABCD"))
-print(checkout("EEEEBB"))   #160
-#print(checkout("BEBEEE"))   #160
-print(checkout("ABCDEABCDE"))   #280
-#print(checkout("EEB")) # 80
-#print(checkout("EEEB")) # 120
-#print(checkout("FF"))
-#print(checkout("FFF"))
-#print(checkout("FFFFF"))
-#print(checkout("FFFFFF"))
-print(checkout("HHHHH"))
-print(checkout("HHHHHHHHHHH"))
-print(checkout("HHHH"))
-print(checkout("KKK"))
-print(checkout("V"))
-print(checkout("VV"))
-print(checkout("VVV"))
-print(checkout("NNNMM"))
-print(checkout("RRRU"))
+#print(checkout("AAAA"))
+#print(checkout("BBBB"))
+##print(checkout("C"))
+##print(checkout("D"))
+##print(checkout("ABCD"))
+##print(checkout("ABCDEE"))
+##print(checkout("AAAAAABCD"))
+#print(checkout("EEEEBB"))   #160
+##print(checkout("BEBEEE"))   #160
+#print(checkout("ABCDEABCDE"))   #280
+##print(checkout("EEB")) # 80
+##print(checkout("EEEB")) # 120
+##print(checkout("FF"))
+##print(checkout("FFF"))
+##print(checkout("FFFFF"))
+##print(checkout("FFFFFF"))
+#print(checkout("HHHHH"))
+#print(checkout("HHHHHHHHHHH"))
+#print(checkout("HHHH"))
+#print(checkout("KKK"))
+#print(checkout("V"))
+#print(checkout("VV"))
+#print(checkout("VVV"))
+#print(checkout("NNNMM"))
+#print(checkout("RRRQ"))
+#print(checkout("UUUUUU"))
+
 
 
 
@@ -190,10 +192,3 @@ print(checkout("RRRU"))
 | Z    | 50    |                        |
 +------+-------+------------------------+
  """
-
-
-
-
-
-
-
