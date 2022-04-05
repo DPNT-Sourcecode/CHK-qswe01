@@ -34,14 +34,14 @@ def checkout(skus):
     "P": 50,
     "Q": 30,
     "R": 50,
-    "S": 30,
+    "S": 20,
     "T": 20,
     "U": 40,
     "V": 50,
     "W": 20,
-    "X": 90,
-    "Y": 10,
-    "Z": 50,
+    "X": 17,
+    "Y": 20,
+    "Z": 21,
     }
 
     # discount functions
@@ -157,9 +157,10 @@ def checkout(skus):
 #print(checkout("NNNMM"))
 #print(checkout("RRRQ"))
 #print(checkout("UUUUUU"))
-print(checkout("UUU")) # 120
-print(checkout("QQQ"))  #80
-print(checkout("QQQQ")) #110
+#print(checkout("UUU")) # 120
+#print(checkout("QQQ"))  #80
+#print(checkout("QQQQ")) #110
+print(checkout("SSSZ"))
 
 
 """
@@ -194,3 +195,4 @@ print(checkout("QQQQ")) #110
 | Z    | 21    | buy any 3 of (S,T,X,Y,Z) for 45 |
 +------+-------+---------------------------------+
  """
+
