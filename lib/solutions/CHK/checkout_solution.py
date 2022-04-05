@@ -35,14 +35,12 @@ def checkout(skus):
                 q3A, rest3 = divmod(rest5, 3)
                 total += (q5A*200 + q3A*130 + rest3*prices.get(item))
             elif item == "B":       
-                qB, restB = divmod(amount, 2)
                 qE, _ = divmod(basket.get("E", 0), 2)
+                newAmountB = max(0, basket.get(item) - qE)
 
-                if qE >= 2*qB:
-                    total += restB * prices.get(item)
-                else:
-                    total += (qB-qE)*45 + restB*prices.get(item)
-
+                qB, restB = divmod(newAmountB, 2)
+                total += qB*45 + restB*prices.get(item)
+                
     return total
 
 #print(checkout("AAAA"))
@@ -54,9 +52,9 @@ def checkout(skus):
 #print(checkout("AAAAAABCD"))
 #print(checkout("EEEEBB"))   #160
 #print(checkout("BEBEEE"))   #160
-print(checkout("ABCDEABCDE"))   #280
-print(checkout("EEB")) # 80
-print(checkout("EEEB")) # 120
+#print(checkout("ABCDEABCDE"))   #280
+#print(checkout("EEB")) # 80
+#print(checkout("EEEB")) # 120
 
         
 
