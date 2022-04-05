@@ -10,9 +10,41 @@ def checkout(skus):
     "C": 20, 
     "D": 15, 
     "E": 40, 
-    "F": 10}
+    "F": 10,
+    "G": 20,
+    "H": 10,
+    "I": 35,
+    "J": 60,
+    "K": 80,
+    "L": 90,
+    "M": 15,
+    "N": 40,
+    "O": 10,
+    "P": 50,
+    "Q": 30,
+    "R": 50,
+    "S": 30,
+    "T": 20,
+    "U": 40,
+    "V": 50,
+    "W": 20,
+    "X": 90,
+    "Y": 10,
+    "Z": 50,
+    }
     special_offer = "ABF"
 
+    def discountA(basket):
+        q5A, rest5 = divmod(amount, 5)
+        q3A, rest3 = divmod(rest5, 3)
+        subtotal = (q5A*200 + q3A*130 + rest3*prices.get(item))
+        return subtotal
+
+    discounts = {"A": discountA}
+
+
+
+    # fill basket from string
     basket = {}
     for item in items_set:
         if item not in prices.keys():
@@ -20,24 +52,18 @@ def checkout(skus):
 
         basket[item] = items.count(item)
 
+    # sum up cost
     total = 0
-
-    #if basket.get("B") and basket.get("E"):
-    #    q, rest = divmod(basket.get("E"), 2)
-    #    if basket.get("B") >= q:
-    #        basket["B"] = basket.get("B") - q
-    #    else:
-    #        basket["B"] = 0
-    #print(basket)
-
     for item, amount in basket.items():
         if item not in special_offer:
             total += amount * prices.get(item)
         else:
             if item == "A":
-                q5A, rest5 = divmod(amount, 5)
-                q3A, rest3 = divmod(rest5, 3)
-                total += (q5A*200 + q3A*130 + rest3*prices.get(item))
+                #q5A, rest5 = divmod(amount, 5)
+                #q3A, rest3 = divmod(rest5, 3)
+                #total += (q5A*200 + q3A*130 + rest3*prices.get(item))
+                discount = discounts.get("A")
+                total += discount(basket)
             elif item == "B":       
                 qE, _ = divmod(basket.get("E", 0), 2)
                 newAmountB = max(0, basket.get(item) - qE)
@@ -52,7 +78,7 @@ def checkout(skus):
                 
     return total
 
-#print(checkout("AAAA"))
+print(checkout("AAAA"))
 #print(checkout("BBBB"))
 #print(checkout("C"))
 #print(checkout("D"))
