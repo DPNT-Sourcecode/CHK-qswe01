@@ -89,7 +89,7 @@ def checkout(skus):
         return subtotal
 
     def discountU(basket):
-        qU, _ = divmod(basket.get(item), 3)
+        qU, _ = divmod(basket.get(item), 4)
         newAmountU = max(0, basket.get(item) - qU)
         subtotal = newAmountU * prices.get(item)
         return subtotal
@@ -191,4 +191,5 @@ print(checkout("QQQQ")) #110
 | Z    | 50    |                        |
 +------+-------+------------------------+
  """
+
 
