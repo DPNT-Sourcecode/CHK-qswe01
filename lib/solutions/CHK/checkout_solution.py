@@ -32,7 +32,6 @@ def checkout(skus):
     "Y": 10,
     "Z": 50,
     }
-    special_offer = "ABF"
 
     def discountA(basket):
         q5A, rest5 = divmod(amount, 5)
@@ -46,8 +45,14 @@ def checkout(skus):
         qB, restB = divmod(newAmountB, 2)
         subtotal = qB*45 + restB*prices.get(item)
         return subtotal
-    discounts = {"A": discountA, "B": discountB}
 
+    def discountF(basket):
+        qF, restF = divmod(basket.get(item), 3)
+        newAmountB = basket.get(item) - qF
+        subtotal = newAmountB * prices.get(item)
+        return subtotal
+
+    discounts = {"A": discountA, "B": discountB, "F": discountF}
 
 
     # fill basket from string
@@ -61,27 +66,29 @@ def checkout(skus):
     # sum up cost
     total = 0
     for item, amount in basket.items():
-        if item not in special_offer:
+        if item not in discounts.keys():
             total += amount * prices.get(item)
         else:
-            if item == "A":
-                #q5A, rest5 = divmod(amount, 5)
-                #q3A, rest3 = divmod(rest5, 3)
-                #total += (q5A*200 + q3A*130 + rest3*prices.get(item))
-                discount = discounts.get("A")
-                total += discount(basket)
-            elif item == "B":       
-                #qE, _ = divmod(basket.get("E", 0), 2)
-                #newAmountB = max(0, basket.get(item) - qE)
-
-                #qB, restB = divmod(newAmountB, 2)
-                discount = discounts.get("B")
-                total += discount(basket)
-            elif item == "F":
-                qF, restF = divmod(basket.get(item), 3)
-                newAmountB = basket.get(item) - qF
-
-                total += newAmountB * prices.get(item)
+            discount = discounts.get(item)
+            total += discount(basket)
+            #if item == "A":
+            #    #q5A, rest5 = divmod(amount, 5)
+            #    #q3A, rest3 = divmod(rest5, 3)
+            #    #total += (q5A*200 + q3A*130 + rest3*prices.get(item))
+            #    discount = discounts.get("A")
+            #    total += discount(basket)
+            #elif item == "B":       
+            #    #qE, _ = divmod(basket.get("E", 0), 2)
+            #    #newAmountB = max(0, basket.get(item) - qE)
+#
+            #    #qB, restB = divmod(newAmountB, 2)
+            #    discount = discounts.get("B")
+            #    total += discount(basket)
+            #elif item == "F":
+            #    #qF, restF = divmod(basket.get(item), 3)
+            #    #newAmountB = basket.get(item) - qF
+            #    discount = discounts.get("F")
+            #    total += discount(basket)
                 
     return total
 
@@ -139,4 +146,5 @@ print(checkout("FFFFFF"))
 | Z    | 50    |                        |
 +------+-------+------------------------+
  """
+
 
