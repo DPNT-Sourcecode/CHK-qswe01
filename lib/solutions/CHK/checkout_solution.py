@@ -45,16 +45,16 @@ def checkout(skus):
 
     return total
 
-print(checkout("AAAA"))
-print(checkout("BBBB"))
-print(checkout("C"))
-print(checkout("D"))
-print(checkout("ABCD"))
-print(checkout("ABCDEE"))
-print(checkout("AAAAAABCD"))
-print(checkout("EEEEBB"))   #160
-print(checkout("BEBEEE"))   #160
-print(checkout("ABCDEABCDE"))   #265
+#print(checkout("AAAA"))
+#print(checkout("BBBB"))
+#print(checkout("C"))
+#print(checkout("D"))
+#print(checkout("ABCD"))
+#print(checkout("ABCDEE"))
+#print(checkout("AAAAAABCD"))
+#print(checkout("EEEEBB"))   #160
+#print(checkout("BEBEEE"))   #160
+#print(checkout("ABCDEABCDE"))   #265
 
         
 
@@ -86,3 +86,4 @@ Where:
  - param[0] = a String containing the SKUs of all the products in the basket
  - @return = an Integer representing the total checkout value of the items 
  """
+
