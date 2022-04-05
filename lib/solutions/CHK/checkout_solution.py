@@ -76,7 +76,7 @@ def checkout(skus):
         
     def discountV(basket):
         q3H, rest3 = divmod(amount, 3)
-        q2H, rest2 = divmod(3, 2)
+        q2H, rest2 = divmod(rest3, 2)
         subtotal = (q3H*130 + q2H*90 + rest2*prices.get(item))
         return subtotal
         
@@ -173,6 +173,7 @@ print(checkout("VVV"))
 | Z    | 50    |                        |
 +------+-------+------------------------+
  """
+
 
 
 
