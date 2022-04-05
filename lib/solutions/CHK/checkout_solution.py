@@ -64,7 +64,28 @@ def checkout(skus):
         subtotal = qK *150 + restK * prices.get(item)
         return subtotal
  
-    discounts = {"A": discountA, "B": discountB, "F": discountF, "H": discountH, "K": discountK}
+    def discountP(basket):
+        qK, restK = divmod(basket.get(item), 5)
+        subtotal = qK *200 + restK * prices.get(item)
+        return subtotal
+        
+    def discountQ(basket):
+        qK, restK = divmod(basket.get(item), 3)
+        subtotal = qK *80 + restK * prices.get(item)
+        return subtotal   
+        
+    def discountV(basket):
+        q3H, rest3 = divmod(amount, 3)
+        q2H, rest2 = divmod(3, 2)
+        subtotal = (q3H*130 + q2H*90 + rest2*prices.get(item))
+        return subtotal
+        
+        '''3N get one M free                        
+3R get one Q free                      
+3U get one U free    
+''' 
+
+    discounts = {"A": discountA, "B": discountB, "F": discountF, "H": discountH, "K": discountK, "P": discountP, "Q": discountQ, "V": discountV}
 
 
     # fill basket from string
@@ -106,6 +127,10 @@ print(checkout("HHHHH"))
 print(checkout("HHHHHHHHHHH"))
 print(checkout("HHHH"))
 print(checkout("KKK"))
+print(checkout("V"))
+print(checkout("VV"))
+print(checkout("VVV"))
+
 
 
 
@@ -148,6 +173,7 @@ print(checkout("KKK"))
 | Z    | 50    |                        |
 +------+-------+------------------------+
  """
+
 
 
 
