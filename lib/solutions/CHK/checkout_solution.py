@@ -40,7 +40,13 @@ def checkout(skus):
         subtotal = (q5A*200 + q3A*130 + rest3*prices.get(item))
         return subtotal
 
-    discounts = {"A": discountA}
+    def discountB(basket):
+        qE, _ = divmod(basket.get("E", 0), 2)
+        newAmountB = max(0, basket.get(item) - qE)
+        qB, restB = divmod(newAmountB, 2)
+        subtotal = qB*45 + restB*prices.get(item)
+        return subtotal
+    discounts = {"A": discountA, "B": discountB}
 
 
 
@@ -65,11 +71,12 @@ def checkout(skus):
                 discount = discounts.get("A")
                 total += discount(basket)
             elif item == "B":       
-                qE, _ = divmod(basket.get("E", 0), 2)
-                newAmountB = max(0, basket.get(item) - qE)
+                #qE, _ = divmod(basket.get("E", 0), 2)
+                #newAmountB = max(0, basket.get(item) - qE)
 
-                qB, restB = divmod(newAmountB, 2)
-                total += qB*45 + restB*prices.get(item)
+                #qB, restB = divmod(newAmountB, 2)
+                discount = discounts.get("B")
+                total += discount(basket)
             elif item == "F":
                 qF, restF = divmod(basket.get(item), 3)
                 newAmountB = basket.get(item) - qF
@@ -79,15 +86,15 @@ def checkout(skus):
     return total
 
 print(checkout("AAAA"))
-#print(checkout("BBBB"))
+print(checkout("BBBB"))
 #print(checkout("C"))
 #print(checkout("D"))
 #print(checkout("ABCD"))
 #print(checkout("ABCDEE"))
 #print(checkout("AAAAAABCD"))
-#print(checkout("EEEEBB"))   #160
+print(checkout("EEEEBB"))   #160
 #print(checkout("BEBEEE"))   #160
-#print(checkout("ABCDEABCDE"))   #280
+print(checkout("ABCDEABCDE"))   #280
 #print(checkout("EEB")) # 80
 #print(checkout("EEEB")) # 120
 print(checkout("FF"))
@@ -132,3 +139,4 @@ print(checkout("FFFFFF"))
 | Z    | 50    |                        |
 +------+-------+------------------------+
  """
+
