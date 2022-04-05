@@ -3,6 +3,17 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
+    # modify input to take care of group items
+    group = ""
+    for char in "ZSTYX":
+        group += skus.count(char) * char
+        skus = skus.replace(char, "")
+
+    groupDiscountItems, _ = divmod(len(group), 3)
+    leftOver = group[groupDiscountItems*3:]
+    skus += leftOver
+    
+    
     items = list(skus)
     items_set = set(items)
     prices = {"A": 50, 
@@ -114,7 +125,10 @@ def checkout(skus):
         else:
             discount = discounts.get(item)
             total += discount(basket)
-                
+
+    # add group discount
+    total += groupDiscountItems * 45
+
     return total
 
 #print(checkout("AAAA"))
