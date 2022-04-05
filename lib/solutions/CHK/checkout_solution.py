@@ -26,7 +26,7 @@ def checkout(skus):
     "H": 10,
     "I": 35,
     "J": 60,
-    "K": 80,
+    "K": 70,
     "L": 90,
     "M": 15,
     "N": 40,
@@ -160,7 +160,10 @@ def checkout(skus):
 #print(checkout("UUU")) # 120
 #print(checkout("QQQ"))  #80
 #print(checkout("QQQQ")) #110
-print(checkout("XYZSTSS"))
+#print(checkout("XYZSTSS"))
+#print(checkout("K"))    # 70
+#print(checkout("ABCDEFGHIJKLMNOPQRSTUVW"))  # 795
+
 
 
 """
@@ -195,5 +198,6 @@ print(checkout("XYZSTSS"))
 | Z    | 21    | buy any 3 of (S,T,X,Y,Z) for 45 |
 +------+-------+---------------------------------+
  """
+
 
 
