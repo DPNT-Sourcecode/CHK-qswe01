@@ -70,8 +70,10 @@ def checkout(skus):
         return subtotal
         
     def discountQ(basket):
-        qK, restK = divmod(basket.get(item), 3)
-        subtotal = qK *80 + restK * prices.get(item)
+        qR, _ = divmod(basket.get("R", 0), 3)
+        newAmountQ = max(0, basket.get(item) - qR)
+        qQ, restQ = divmod(newAmountQ, 3)
+        subtotal = qQ*80 + restQ * prices.get(item)
         return subtotal   
         
     def discountV(basket):
@@ -84,12 +86,6 @@ def checkout(skus):
         qN, _ = divmod(basket.get("N", 0), 3)
         newAmountN = max(0, basket.get(item) - qN)
         subtotal = newAmountN * prices.get(item)
-        return subtotal
-
-    def discountQ(basket):
-        qR, _ = divmod(basket.get("R", 0), 3)
-        newAmountQ = max(0, basket.get(item) - qR)
-        subtotal = newAmountQ * prices.get(item)
         return subtotal
 
     def discountU(basket):
@@ -195,3 +191,4 @@ print(checkout("QQQQ")) #110
 | Z    | 50    |                        |
 +------+-------+------------------------+
  """
+
