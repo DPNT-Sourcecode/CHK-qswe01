@@ -33,6 +33,7 @@ def checkout(skus):
     "Z": 50,
     }
 
+    # discount functions
     def discountA(basket):
         q5A, rest5 = divmod(amount, 5)
         q3A, rest3 = divmod(rest5, 3)
@@ -52,7 +53,13 @@ def checkout(skus):
         subtotal = newAmountB * prices.get(item)
         return subtotal
 
-    discounts = {"A": discountA, "B": discountB, "F": discountF}
+    def discountH(basket):
+        q10H, rest10 = divmod(amount, 10)
+        q5H, rest5 = divmod(rest10, 5)
+        subtotal = (q10H*80 + q5H*45 + rest5*prices.get(item))
+        return subtotal
+ 
+    discounts = {"A": discountA, "B": discountB, "F": discountF, "H": discountH}
 
 
     # fill basket from string
@@ -71,24 +78,6 @@ def checkout(skus):
         else:
             discount = discounts.get(item)
             total += discount(basket)
-            #if item == "A":
-            #    #q5A, rest5 = divmod(amount, 5)
-            #    #q3A, rest3 = divmod(rest5, 3)
-            #    #total += (q5A*200 + q3A*130 + rest3*prices.get(item))
-            #    discount = discounts.get("A")
-            #    total += discount(basket)
-            #elif item == "B":       
-            #    #qE, _ = divmod(basket.get("E", 0), 2)
-            #    #newAmountB = max(0, basket.get(item) - qE)
-#
-            #    #qB, restB = divmod(newAmountB, 2)
-            #    discount = discounts.get("B")
-            #    total += discount(basket)
-            #elif item == "F":
-            #    #qF, restF = divmod(basket.get(item), 3)
-            #    #newAmountB = basket.get(item) - qF
-            #    discount = discounts.get("F")
-            #    total += discount(basket)
                 
     return total
 
@@ -104,10 +93,16 @@ print(checkout("EEEEBB"))   #160
 print(checkout("ABCDEABCDE"))   #280
 #print(checkout("EEB")) # 80
 #print(checkout("EEEB")) # 120
-print(checkout("FF"))
-print(checkout("FFF"))
-print(checkout("FFFFF"))
-print(checkout("FFFFFF"))
+#print(checkout("FF"))
+#print(checkout("FFF"))
+#print(checkout("FFFFF"))
+#print(checkout("FFFFFF"))
+print(checkout("HHHHH"))
+print(checkout("HHHHHHHHHHH"))
+print(checkout("HHHH"))
+
+
+
 
         
 
@@ -146,5 +141,6 @@ print(checkout("FFFFFF"))
 | Z    | 50    |                        |
 +------+-------+------------------------+
  """
+
 
 
