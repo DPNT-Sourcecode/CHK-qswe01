@@ -41,7 +41,7 @@ def checkout(skus):
                 if qE >= 2*qB:
                     total += restB * prices.get(item)
                 else:
-                    total += qB*45 - qE*prices.get(item) + restB*prices.get(item)
+                    total += qB*45 - qE/2*prices.get(item) + restB*prices.get(item)
 
     return total
 
@@ -54,7 +54,9 @@ def checkout(skus):
 #print(checkout("AAAAAABCD"))
 #print(checkout("EEEEBB"))   #160
 #print(checkout("BEBEEE"))   #160
-#print(checkout("ABCDEABCDE"))   #265
+print(checkout("ABCDEABCDE"))   #280
+print(checkout("EEB")) # 80
+print(checkout("EEEB")) # 120
 
         
 
@@ -86,4 +88,5 @@ Where:
  - param[0] = a String containing the SKUs of all the products in the basket
  - @return = an Integer representing the total checkout value of the items 
  """
+
 
