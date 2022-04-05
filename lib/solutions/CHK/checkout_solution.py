@@ -58,8 +58,13 @@ def checkout(skus):
         q5H, rest5 = divmod(rest10, 5)
         subtotal = (q10H*80 + q5H*45 + rest5*prices.get(item))
         return subtotal
+
+    def discountK(basket):
+        qK, restK = divmod(basket.get(item), 2)
+        subtotal = qK *150 + restK * prices.get(item)
+        return subtotal
  
-    discounts = {"A": discountA, "B": discountB, "F": discountF, "H": discountH}
+    discounts = {"A": discountA, "B": discountB, "F": discountF, "H": discountH, "K": discountK}
 
 
     # fill basket from string
@@ -100,6 +105,8 @@ print(checkout("ABCDEABCDE"))   #280
 print(checkout("HHHHH"))
 print(checkout("HHHHHHHHHHH"))
 print(checkout("HHHH"))
+print(checkout("KKK"))
+
 
 
 
@@ -141,6 +148,7 @@ print(checkout("HHHH"))
 | Z    | 50    |                        |
 +------+-------+------------------------+
  """
+
 
 
 
