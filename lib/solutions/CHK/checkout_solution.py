@@ -72,7 +72,7 @@ def checkout(skus):
 
     def discountK(basket):
         qK, restK = divmod(basket.get(item), 2)
-        subtotal = qK *150 + restK * prices.get(item)
+        subtotal = qK *120 + restK * prices.get(item)
         return subtotal
  
     def discountP(basket):
@@ -163,6 +163,9 @@ def checkout(skus):
 #print(checkout("XYZSTSS"))
 #print(checkout("K"))    # 70
 #print(checkout("ABCDEFGHIJKLMNOPQRSTUVW"))  # 795
+#print(checkout("KK"))    # 120
+#print(checkout("KKK"))    # 190
+#print(checkout("KKKK"))    # 240
 
 
 
@@ -198,6 +201,7 @@ def checkout(skus):
 | Z    | 21    | buy any 3 of (S,T,X,Y,Z) for 45 |
 +------+-------+---------------------------------+
  """
+
 
 
 
