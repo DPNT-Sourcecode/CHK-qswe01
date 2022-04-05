@@ -160,7 +160,7 @@ def checkout(skus):
 #print(checkout("UUU")) # 120
 #print(checkout("QQQ"))  #80
 #print(checkout("QQQQ")) #110
-print(checkout("SSSZ"))
+print(checkout("XYZSTSS"))
 
 
 """
@@ -195,4 +195,5 @@ print(checkout("SSSZ"))
 | Z    | 21    | buy any 3 of (S,T,X,Y,Z) for 45 |
 +------+-------+---------------------------------+
  """
+
 
