@@ -147,6 +147,9 @@ def checkout(skus):
 #print(checkout("NNNMM"))
 #print(checkout("RRRQ"))
 #print(checkout("UUUUUU"))
+print(checkout("UUU")) # 120
+print(checkout("QQQ"))  #80
+print(checkout("QQQQ")) #110
 
 
 
